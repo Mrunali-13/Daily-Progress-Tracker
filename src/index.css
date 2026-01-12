@@ -1,0 +1,302 @@
+/* --- Global Reset & Design Tokens --- */
+:root {
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --surface-ground: #f8fafc;
+  --surface-section: #ffffff;
+  --text-color: #1e293b;
+  --text-secondary: #64748b;
+  --border-radius: 16px;
+  --card-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --auth-bg-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  background-color: var(--surface-ground);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.auth-page {
+  background: var(--auth-bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 450px;
+  padding: 2.5rem !important;
+}
+
+/* Fix Input Icons Alignment */
+.p-input-icon-left,
+.p-input-icon-right {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+}
+
+.p-input-icon-left>i {
+  left: 1rem !important;
+  color: #94a3b8;
+}
+
+.p-input-icon-left>.p-inputtext {
+  padding-left: 3rem !important;
+}
+
+/* Button Centering Fixes */
+.p-button {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* --- CRITICAL: PrimeIcons Safeguard --- */
+/* In case global body font overrides icons, we force PrimeIcons specifically */
+.pi {
+  font-family: 'primeicons' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Layout Utilities --- */
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.z-5 {
+  z-index: 5;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+/* --- Component Overhauls --- */
+
+/* Card Styling */
+.card {
+  background: var(--surface-section);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.card h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Menubar */
+.p-menubar {
+  padding: 0.75rem 2rem !important;
+  background: var(--surface-section) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1) !important;
+}
+
+.p-menubar .p-menuitem-link {
+  padding: 0.6rem 1rem !important;
+  border-radius: 8px !important;
+}
+
+.p-menubar .p-menuitem-link:hover {
+  background: #f1f5f9 !important;
+}
+
+/* Buttons */
+.p-button {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.p-button-rounded.p-button-text:hover {
+  background: #f1f5f9 !important;
+}
+
+/* DataTable */
+.p-datatable {
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.p-datatable .p-datatable-header {
+  background: #f8fafc !important;
+  padding: 1rem !important;
+}
+
+.p-datatable .p-datatable-thead>tr>th {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* Inputs & Form Fields */
+.field {
+  margin-bottom: 1.5rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.875rem;
+}
+
+.p-inputtext,
+.p-dropdown,
+.p-calendar input {
+  border-radius: 8px !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 0.75rem !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.p-inputtext:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 2px #e0e7ff !important;
+}
+
+/* Dashboard Specifics */
+.dashboard-card-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* File Upload */
+.p-fileupload .p-fileupload-buttonbar {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  gap: 0.5rem !important;
+}
+
+.p-fileupload .p-fileupload-content {
+  border: 2px dashed #e2e8f0 !important;
+  border-radius: 12px !important;
+  background: #f8fafc !important;
+  padding: 1.5rem !important;
+  margin-top: 0.5rem;
+}
+
+/* Dialogs */
+.p-dialog .p-dialog-header {
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 1.5rem 2rem !important;
+}
+
+.p-dialog .p-dialog-footer {
+  border-top: 1px solid #f1f5f9 !important;
+  padding: 1rem 2rem !important;
+}
+
+/* Helper Utilities */
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+.gap-4 {
+  gap: 1.5rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-danger {
+  color: #ef4444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .p-menubar {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
